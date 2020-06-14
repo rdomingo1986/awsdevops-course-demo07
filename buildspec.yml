@@ -22,3 +22,6 @@ artifacts:
   files:
     - '**/*'
   base-directory: dist/angular-web-app
+cache:
+  paths:
+    - '/root/.npm/**/*'
