@@ -1,0 +1,24 @@
+version: 0.2            
+phases:
+  install:
+    runtime-versions:
+      nodejs: 12.x
+    commands:
+      #- apt-get update -y
+      #- apt-get upgrade -y
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      #- npm run lint
+      - npm run build
+  post_build:
+    commands:
+    - mv appspec.yml dist/angular-web-app
+    - mkdir dist/angular-web-app/scripts
+    - mv scripts/* dist/angular-web-app/scripts
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist/angular-web-app
